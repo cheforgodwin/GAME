@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Memory Game</title>
-  <link rel="stylesheet" href="main.css">
+
 </head>
 <body>
 
@@ -16,7 +16,8 @@
     const board = document.getElementById("gameBoard");
     const winMessage = document.getElementById("winMessage");
 
-    const symbols = ["Shanelle", "Daniel", "Shina", "Godwin", "Emma", "Kebu", "Joseph", "Zenith"];
+    // Emojis or symbols to match
+    const symbols = ["🍎", "🍌", "🍇", "🍓", "🍒", "🍍", "🥝", "🍉"];
     const cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
 
     let firstCard = null;
