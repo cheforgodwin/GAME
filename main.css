@@ -106,8 +106,9 @@ h1 {
 /* Tablets (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
   .game-board {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     max-width: 450px;
+    justify-content: center;
   }
 
   .card {
