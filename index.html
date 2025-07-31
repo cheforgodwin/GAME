@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #2196f3;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .matched {
+      background-color: #4caf50;
+      pointer-events: none;
+    }
+
+    .hidden {
+      background-color: #90caf9;
+      color: transparent;
+    }
+
+    .win-message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Memory Matching Game</h1>
+  <div class="game-board" id="gameBoard"></div>
+  <div class="win-message" id="winMessage"></div>
+
+  <script>
+    const board = document.getElementById("gameBoard");
+    const winMessage = document.getElementById("winMessage");
+
+    // Emojis or symbols to match
+    const symbols = ["🍎", "🍌", "🍇", "🍓", "🍒", "🍍", "🥝", "🍉"];
+    const cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
+
+    let firstCard = null;
+    let secondCard = null;
+    let matchedCount = 0;
+
+    cards.forEach((symbol, index) => {
+      const card = document.createElement("div");
+      card.classList.add("card", "hidden");
+      card.dataset.symbol = symbol;
+      card.dataset.index = index;
+      card.textContent = symbol;
+
+      card.addEventListener("click", () => {
+        if (card.classList.contains("matched") || card === firstCard) return;
+
+        card.classList.remove("hidden");
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          setTimeout(() => {
+            if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+              firstCard.classList.add("matched");
+              secondCard.classList.add("matched");
+              matchedCount += 2;
+
+              if (matchedCount === cards.length) {
+                winMessage.textContent = "🎉 Congratulations! You matched all!";
+              }
+            } else {
+              firstCard.classList.add("hidden");
+              secondCard.classList.add("hidden");
+            }
+
+            firstCard = null;
+            secondCard = null;
+          }, 800);
+        }
+      });
+
+      board.appendChild(card);
+    });
+  </script>
+</body>
+</html>
