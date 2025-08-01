@@ -20,7 +20,9 @@ body {
    grid-template-columns: repeat(4, 100px);
    grid-gap: 14px;
    justify-content: center;
+   align-items: center;
    margin-top: 30px;
+   margin-left: 200px;
  }
 
  .card {
@@ -106,7 +108,7 @@ body {
    .game-board {
      grid-template-columns: repeat(4, 1fr);
      max-width: 450px;
-     justify-content: center;
+     /* justify-content: center; */
    }
 
    .card {
