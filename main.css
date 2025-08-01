@@ -39,7 +39,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(18px, 5vw, 30px);
+  /* font-size: clamp(18px, 5vw, 30px); */
   color: white;
   cursor: pointer;
   user-select: none;
@@ -59,7 +59,9 @@ h1 {
 .win-message {
   margin-top: 20px;
   font-size: clamp(1rem, 4vw, 1.8rem);
-  color: green;
+  color: white;
+  font-weight: bold;
+  text-align: center;
   text-shadow: 1px 1px 2px #fff;
 }
 
@@ -71,6 +73,7 @@ h1 {
   }
 
   h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.6rem;
   }
 }
