@@ -1,77 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Game - Levels</title>
+  <link rel="stylesheet" href="styles.css">
 
 </head>
-
 <body>
+  <h1>Memory Matching Game</h1>
+  <div id="level-info">Level: 1</div>
+  <div id="timer">Time Left: 60s</div>
+  <div class="game-board" id="gameBoard"></div>
+  <div class="message" id="message"></div>
+  <button id="nextBtn" style="display:none;">Next Level</button>
 
-    
-    <h1>Memory Matching Game</h1>
-    <div class="game-board" id="gameBoard"></div>
-    <div class="win-message" id="winMessage"></div>
-
-
-    <script>
-        const board = document.getElementById("gameBoard");
-        const winMessage = document.getElementById("winMessage");
-
-        // Emojis or symbols to match
-        const symbols = ["loise", "zenith", "kebu", "shina", "shanelle", "daniel", "godwin ", "fabrice"];
-        const cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
-
-        let firstCard = null;
-        let secondCard = null;
-        let matchedCount = 0;
-
-        cards.forEach((symbol, index) => {
-            const card = document.createElement("div");
-            card.classList.add("card", "hidden");
-            card.dataset.symbol = symbol;
-            card.dataset.index = index;
-            card.textContent = symbol;
-
-            card.addEventListener("click", () => {
-                if (card.classList.contains("matched") || card === firstCard) return;
-
-                card.classList.remove("hidden");
-
-                if (!firstCard) {
-                    firstCard = card;
-                } else {
-                    secondCard = card;
-                    setTimeout(() => {
-                        if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
-                            firstCard.classList.add("matched");
-                            secondCard.classList.add("matched");
-                            matchedCount += 2;
-
-
-              if (matchedCount === cards.length) {
-                winMessage.textContent = " Congratulations! You matched all!";
-              }
-            } else {
-              firstCard.classList.add("hidden");
-              secondCard.classList.add("hidden");
-            }
-
-                            
-                        
-
-                        firstCard = null;
-                        secondCard = null;
-                    }, 800);
-                }
-            });
-
-            board.appendChild(card);
-        });
-    </script>
+<script src="script.js"></script>
 </body>
-
 </html>
