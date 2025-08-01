@@ -1,131 +1,130 @@
  body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f0f0;
-      text-align: center;
-     background-image: url("/nature.jpg");
-    }
-    
-
-    h1 {
-      color: white
-    }
-
-    .game-board {
-      display: grid;
-      grid-template-columns: repeat(4, 100px);
-      grid-gap: 14px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .card {
-      width: 100px;
-      height: 100px;
-      background-color: #2196f3;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-
-    .matched {
-      background-color: #4caf50;
-      pointer-events: none;
-    }
-
-    .hidden {
-      background-color: #90caf9;
-      color: transparent;
-    }
+   font-family: 'Segoe UI', sans-serif;
+   background: #f0f0f0;
+   text-align: center;
+   background-image: url("/nature.jpg");
+ }
 
 
-    .win-message {
-      margin-top: 20px;
-      font-size: 24px;
-      color: green;
-    }
- 
+ h1 {
+   color: white
+ }
 
-.hidden {
-  background-color: #90caf9;
-  color: transparent;
-}
+ .game-board {
+   display: grid;
+   grid-template-columns: repeat(4, 100px);
+   grid-gap: 14px;
+   justify-content: center;
+   margin-top: 30px;
+ }
 
-.win-message {
-  margin-top: 20px;
-  font-size: clamp(1rem, 4vw, 1.8rem);
-  color: green;
-  text-shadow: 1px 1px 2px #fff;
-}
+ .card {
+   width: 100px;
+   height: 100px;
+   background-color: #2196f3;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 30px;
+   color: white;
+   cursor: pointer;
+   user-select: none;
+   transition: background 0.3s ease;
+ }
+
+ .matched {
+   background-color: #4caf50;
+   pointer-events: none;
+ }
+
+ .hidden {
+   background-color: #90caf9;
+   color: transparent;
+ }
 
 
-@media (max-width: 400px) {
-  .game-board {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    max-width: 300px;
-  }
-
-  .card {
-    font-size: 18px;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-}
+ .win-message {
+   margin-top: 20px;
+   font-size: 24px;
+   color: green;
+ }
 
 
-@media (min-width: 401px) and (max-width: 600px) {
-  .game-board {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 360px;
-  }
+ .hidden {
+   background-color: #90caf9;
+   color: transparent;
+ }
 
-  .card {
-    font-size: 20px;
-  }
+ .win-message {
+   margin-top: 20px;
+   font-size: clamp(1rem, 4vw, 1.8rem);
+   color: green;
+   text-shadow: 1px 1px 2px #fff;
+ }
 
-  h1 {
-    font-size: 2rem;
-  }
-}
 
-/* Tablets (601px - 900px) */
-@media (min-width: 601px) and (max-width: 900px) {
-  .game-board {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 450px;
-    justify-content: center;
-  }
+ @media (max-width: 400px) {
+   .game-board {
+     grid-template-columns: repeat(3, 1fr);
+     gap: 10px;
+     max-width: 300px;
+   }
 
-  .card {
-    font-size: 22px;
-  }
+   .card {
+     font-size: 18px;
+   }
 
-  h1 {
-    font-size: 2.2rem;
-  }
-}
+   h1 {
+     font-size: 1.6rem;
+   }
+ }
 
-/* Desktop (901px and up) */
-@media (min-width: 901px) {
-  .game-board {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 500px;
-  }
 
-  .card {
-    font-size: 26px;
-  }
+ @media (min-width: 401px) and (max-width: 600px) {
+   .game-board {
+     grid-template-columns: repeat(4, 1fr);
+     max-width: 360px;
+   }
 
-  h1 {
-    font-size: 2.5rem;
-  }
-}
+   .card {
+     font-size: 20px;
+   }
 
+   h1 {
+     font-size: 2rem;
+   }
+ }
+
+ /* Tablets (601px - 900px) */
+ @media (min-width: 601px) and (max-width: 900px) {
+   .game-board {
+     grid-template-columns: repeat(4, 1fr);
+     max-width: 450px;
+     justify-content: center;
+   }
+
+   .card {
+     font-size: 22px;
+   }
+
+   h1 {
+     font-size: 2.2rem;
+   }
+ }
+
+ /* Desktop (901px and up) */
+ @media (min-width: 901px) {
+   .game-board {
+     grid-template-columns: repeat(4, 1fr);
+     max-width: 500px;
+   }
+
+   .card {
+     font-size: 26px;
+   }
+
+   h1 {
+     font-size: 2.5rem;
+   }
+ }
