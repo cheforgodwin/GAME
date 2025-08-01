@@ -7,7 +7,7 @@ body {
    font-family: 'Segoe UI', sans-serif;
    background: #f0f0f0;
    text-align: center;
-   background-image: url("/nature.jpg");
+   background-image: url("nature.jpg");
  }
 
 
