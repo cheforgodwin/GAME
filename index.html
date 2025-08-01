@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Memory Game</title>
-  <link rel="stylesheet" href="main.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="main.css" />
 
 </head>
+
 <body>
 
-  <h1>Memory Matching Game</h1>
-  <div class="game-board" id="gameBoard"></div>
-  <div class="win-message" id="winMessage"></div>
+    
+    <h1>Memory Matching Game</h1>
+    <div class="game-board" id="gameBoard"></div>
+    <div class="win-message" id="winMessage"></div>
 
-  <script>
-    const board = document.getElementById("gameBoard");
-    const winMessage = document.getElementById("winMessage");
 
-    // Emojis or symbols to match
-    const symbols = ["loise", "zenith", "kebu", "shina", "shanelle", "daniel", "godwin ", "fabrice"];
-    const cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
+    <script>
+        const board = document.getElementById("gameBoard");
+        const winMessage = document.getElementById("winMessage");
 
-    let firstCard = null;
-    let secondCard = null;
-    let matchedCount = 0;
+        // Emojis or symbols to match
+        const symbols = ["loise", "zenith", "kebu", "shina", "shanelle", "daniel", "godwin ", "fabrice"];
+        const cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
 
-    cards.forEach((symbol, index) => {
-      const card = document.createElement("div");
-      card.classList.add("card", "hidden");
-      card.dataset.symbol = symbol;
-      card.dataset.index = index;
-      card.textContent = symbol;
+        let firstCard = null;
+        let secondCard = null;
+        let matchedCount = 0;
 
-      card.addEventListener("click", () => {
-        if (card.classList.contains("matched") || card === firstCard) return;
+        cards.forEach((symbol, index) => {
+            const card = document.createElement("div");
+            card.classList.add("card", "hidden");
+            card.dataset.symbol = symbol;
+            card.dataset.index = index;
+            card.textContent = symbol;
 
-        card.classList.remove("hidden");
+            card.addEventListener("click", () => {
+                if (card.classList.contains("matched") || card === firstCard) return;
 
-        if (!firstCard) {
-          firstCard = card;
-        } else {
-          secondCard = card;
-          setTimeout(() => {
-            if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
-              firstCard.classList.add("matched");
-              secondCard.classList.add("matched");
-              matchedCount += 2;
+                card.classList.remove("hidden");
+
+                if (!firstCard) {
+                    firstCard = card;
+                } else {
+                    secondCard = card;
+                    setTimeout(() => {
+                        if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+                            firstCard.classList.add("matched");
+                            secondCard.classList.add("matched");
+                            matchedCount += 2;
+
 
               if (matchedCount === cards.length) {
                 winMessage.textContent = " Congratulations! You matched all!";
@@ -55,14 +60,18 @@
               secondCard.classList.add("hidden");
             }
 
-            firstCard = null;
-            secondCard = null;
-          }, 800);
-        }
-      });
+                            
+                        
 
-      board.appendChild(card);
-    });
-  </script>
+                        firstCard = null;
+                        secondCard = null;
+                    }, 800);
+                }
+            });
+
+            board.appendChild(card);
+        });
+    </script>
 </body>
+
 </html>
