@@ -20,8 +20,8 @@
       message.textContent = "";
       nextBtn.style.display = "none";
       levelInfo.textContent = `Level: ${level}`;
-      timeLeft = 60 - (level - 1) * 5;
-      if (timeLeft <= 5) timeLeft = 5;
+      timeLeft = 60 - (level - 1) * 4;
+      if (timeLeft <= 5) timeLeft = 4;
 
       const symbols = baseSymbols.slice(0, Math.min(baseSymbols.length, 4 + level));
       cards = [...symbols, ...symbols].sort(() => 0.5 - Math.random());
@@ -55,7 +55,7 @@
 
                 if (matchedCount === cards.length) {
                   clearInterval(timer);
-                  message.textContent = "🎉 Success! Next Level";
+                  message.textContent = " Success! Next Level";
                   message.className = "message win";
                   nextBtn.style.display = "inline-block";
                   gameOver = true;

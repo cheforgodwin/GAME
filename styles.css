@@ -40,7 +40,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: white;
       cursor: pointer;
       transition: 0.3s;
@@ -64,7 +64,7 @@
     }
 
     .win {
-      color: green;
+      color:white;
     }
 
     .fail {
